@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+    ubuntu-ansible:
+      image: williamyeh/ansible:ubuntu18.04
+      working_dir: /home
+      volumes: 
+        - ${PWD}/playbooks/:/home/playbooks/
+        - ${PWD}/credentials/:/root/.ssh/
+        - ${PWD}/git-repo:/home/git-repo
+      command: ansible-playbook /home/playbooks/playbook.yml
+
+        
